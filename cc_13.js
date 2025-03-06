@@ -56,3 +56,54 @@ const employeeContainer = document.getElementById('employeeContainer');
 employeeContainer.addEventListener('click', () => {
     console.log('Employee container clicked!');
 });
+
+// Task 5: Enable inline editing on employee cards
+function enableInlineEditing(card) {
+    // Activate inline editing on double-click
+    card.addEventListener('dblclick', () => {
+        // Store current details
+        const currentName = card.querySelector('h2').innerText;
+        const currentPosition = card.querySelector('p').innerText;
+
+        // Replace card content with input fields
+        card.innerHTML = `
+            <input type="text" class="edit-name" value="${currentName}">
+            <input type="text" class="edit-position" value="${currentPosition}">
+            <button class="save-btn">Save</button>
+        `;
+
+        // Save new details and restore card view
+        const saveBtn = card.querySelector('.save-btn');
+        saveBtn.addEventListener('click', () => {
+            const updatedName = card.querySelector('.edit-name').value;
+            const updatedPosition = card.querySelector('.edit-position').value;
+
+            card.innerHTML = '';
+
+            // Update name
+            const nameElem = document.createElement('h2');
+            nameElem.innerText = updatedName;
+            card.appendChild(nameElem);
+
+            // Update position
+            const positionElem = document.createElement('p');
+            positionElem.innerText = updatedPosition;
+            card.appendChild(positionElem);
+
+            // Restore remove button
+            const removeBtn = document.createElement('button');
+            removeBtn.className = 'remove-btn';
+            removeBtn.innerText = 'Remove';
+            card.appendChild(removeBtn);
+
+            // Add remove button functionality
+            removeBtn.addEventListener('click', (e) => {
+                e.stopPropagation();
+                card.remove();
+            });
+
+            // Re-enable inline editing
+            enableInlineEditing(card);
+        });
+    });
+}
