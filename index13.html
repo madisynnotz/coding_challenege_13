@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Employee Management Dashboard</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>Employee Management System</h1>
+    </header>
+
+    <main>
+        <!-- Employee Form -->
+        <section id="employee-form">
+            <h2>Add New Employee</h2>
+            <form id="add-employee-form">
+                <input type="text" id="employee-name" placeholder="Employee Name" required>
+                <input type="text" id="employee-position" placeholder="Position" required>
+                <input type="number" id="employee-salary" placeholder="Salary" required>
+                <button type="submit">Add Employee</button>
+            </form>
+        </section>
+
+        <!-- Employee List -->
+        <section id="employee-list">
+            <h2>Employees</h2>
+            <div id="employees-container"></div>
+        </section>
+    </main>
+
+    <script src="cc_13.js"></script>
+</body>
+</html>
