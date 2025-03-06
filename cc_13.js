@@ -50,3 +50,9 @@ function bulkUpdateCards() {
         card.style.border = '1px solid #2196f3';
     });
 }
+
+// Task 4: Implementing Removal of Employee Cards with Event Bubbling
+const employeeContainer = document.getElementById('employeeContainer');
+employeeContainer.addEventListener('click', () => {
+    console.log('Employee container clicked!');
+});
