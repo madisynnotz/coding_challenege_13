@@ -38,3 +38,15 @@ const addEmployeeBtn = document.getElementById('addEmployee');
 addEmployeeBtn.addEventListener('click', () => {
     addEmployeeCard('Jane Doe', 'Manager'); // Example employee
 });
+
+// Task 3: Converting NodeLists to Arrays for Bulk Updates
+function bulkUpdateCards() {
+    // Select all employee cards and convert NodeList to array
+    const cards = Array.from(document.querySelectorAll('.employee-card'));
+
+    // Apply styling updates to each card
+    cards.forEach(card => {
+        card.style.backgroundColor = '#e3f2fd';
+        card.style.border = '1px solid #2196f3';
+    });
+}
